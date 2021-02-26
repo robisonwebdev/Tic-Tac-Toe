@@ -8,7 +8,45 @@
     <title>Tic-Tac-Toe</title>
 </head>
 <body>
-    
+    <div id="container">
+        <div id="header">
+            <div class="playerTurnDisplay">P1</div>
+            <div id="titleScoreboard">
+                <div id="scoreboard">0 / 0</div>
+                <div id="gameTitle">Tic-Tac-Toe</div>
+            </div>
+            <div class="playerTurnDisplay">P2</div>
+        </div>
+
+        <div id="gameboard"></div>
+
+        <div id="gameControls">
+            <div id="playerInputForm">
+                <form action="#">
+                    <div id="playerOneInput">
+                        <label for="playerOne">Player 1</label>
+                        <input type="text" name="playerOne" id="playerOne" placeholder="Enter Player 1">
+                    </div>
+                    <div id="playerTwoInput">
+                        <label for="playerTwo">Player 2</label>
+                        <input type="text" name="playerTwo" id="playerTwo" placeholder="Enter Player 2">
+                    </div>
+                    <div id="submitPlayers">
+                        <button type="button">Start!</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="buttons">
+                <button type="button" id='playAgainBtn'>Play Again!</button>
+                <button type="button" id='quitBtn'>Quit</button>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <small>Created by<a href="https://robisonwebdev.github.io/Tic-Tac-Toe/" target="_blank"> David Robison</a></small>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
