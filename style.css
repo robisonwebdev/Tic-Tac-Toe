@@ -42,3 +42,9 @@ body {
 #gameTitle {
     font-size: 32px;
 }
+
+#gameControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
