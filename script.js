@@ -1,20 +1,62 @@
 const gameboard = (function() {
-    let gameboardArray = [];
+    let gameboard = {
+        row1: [],
+        row2: [],
+        row3: []
+    };
 
-    const rowInfo = (square1, square2, square3) => {
-        gameboardArray.push({ square1, square2, square3});
-    }
-
-    function getRow(rowNumber) {
-        const square1 = document.querySelector(`#${rowNumber} .square1`).innerHTML;
-        const square2 = document.querySelector(`#${rowNumber} .square2`).innerHTML;
-        const square3 = document.querySelector(`#${rowNumber} .square3`).innerHTML;
-
-        const row = rowInfo(square1, square2, square3);
+    function updateSquare(row, square, value) {
+        gameboard[row][square] = value;
     }
 
     return {
-        gameboardArray: gameboardArray,
-        getRow: getRow,
+        updateSquare: updateSquare,
+        gameboard: gameboard,
     }
 })();
+
+const gameControls = (function() {
+    const gameSquare = document.querySelectorAll('.gameSquare');
+    let tempVar = 'X';
+
+    gameSquare.forEach((square) => {
+        square.addEventListener('click', (e) => {
+
+            if (tempVar == 'X') {
+                tempVar = 'O';
+            } else {
+                tempVar = 'X';
+            }
+
+            gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, tempVar);
+        })
+    })
+})();
+
+// Saved for later
+// e.target.dataset.row
+
+
+
+// let myArray = [
+//     {
+//         row1: 
+//             {
+//                 square1: 'X',
+//                 square2: 'X',
+//                 square3: 'O'
+//             },
+//         row2: 
+//             {
+//                 square1: 'O',
+//                 square2: 'X',
+//                 square3: 'O'
+//             },
+//         row3: 
+//             {
+//                 square1: 'X',
+//                 square2: 'X',
+//                 square3: 'X'
+//             }
+//     }
+// ]
