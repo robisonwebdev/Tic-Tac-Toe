@@ -60,7 +60,7 @@ const gameControls = (function() {
     gameSquare.forEach((square) => {
         square.addEventListener('click', (e) => {
             updateSquareDisplay(square);
-            gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, tempVar); 
+            gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, square.innerHTML); 
         })
     })
 
