@@ -88,6 +88,7 @@ body {
     align-items: center;
 
     border: 1px solid black;
+    font-size: 65px;
     height: 100%;
     user-select: none;
     width: 100%;
