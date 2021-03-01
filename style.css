@@ -33,6 +33,25 @@ body {
     width: 100%;
 }
 
+.playerTurnDisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 90px;
+    width: 90px;
+}
+
+#player1Display {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#player2Display {
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
 #scoreboardDisplay {
     display: flex;
     flex-direction: column;
