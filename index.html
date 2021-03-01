@@ -21,19 +21,19 @@
 
         <div id="gameboard">
             <div id="row1" class="rows">
-                <div data-row="row1" data-square="square1" class="gameSquare">x</div>
-                <div data-row="row1" data-square="square2" class="gameSquare">x</div>
-                <div data-row="row1" data-square="square3" class="gameSquare"></div>
+                <div data-row="row1" data-square="0" class="gameSquare">x</div>
+                <div data-row="row1" data-square="1" class="gameSquare">x</div>
+                <div data-row="row1" data-square="2" class="gameSquare"></div>
             </div>
             <div id="row2" class="rows">
-                <div data-row="row2" data-square="square1" class="gameSquare">0</div>
-                <div data-row="row2" data-square="square2" class="gameSquare">X</div>
-                <div data-row="row2" data-square="square3" class="gameSquare">0</div>
+                <div data-row="row2" data-square="0" class="gameSquare">0</div>
+                <div data-row="row2" data-square="1" class="gameSquare">X</div>
+                <div data-row="row2" data-square="2" class="gameSquare">0</div>
             </div>
             <div id="row3" class="rows">
-                <div data-row="row3" data-square="square1" class="gameSquare">x</div>
-                <div data-row="row3" data-square="square2" class="gameSquare">0</div>
-                <div data-row="row3" data-square="square3" class="gameSquare">x</div>
+                <div data-row="row3" data-square="0" class="gameSquare">x</div>
+                <div data-row="row3" data-square="1" class="gameSquare">0</div>
+                <div data-row="row3" data-square="2" class="gameSquare">x</div>
             </div>
         </div>
 
@@ -41,15 +41,15 @@
             <div id="playerInput">
                 <form action="#" id="playerInputForm">
                     <div id="playerOneInput">
-                        <label for="playerOne">Player 1</label>
+                        <label for="playerOne">Player 1 (X)</label>
                         <input type="text" name="playerOne" id="playerOne" placeholder="Enter Player 1">
                     </div>
                     <div id="playerTwoInput">
-                        <label for="playerTwo">Player 2</label>
+                        <label for="playerTwo">Player 2 (O)</label>
                         <input type="text" name="playerTwo" id="playerTwo" placeholder="Enter Player 2">
                     </div>
                     <div id="submitPlayers">
-                        <button type="button">Start!</button>
+                        <button type="button" id="submitBtn">Start!</button>
                     </div>
                 </form>
             </div>
