@@ -5,6 +5,20 @@ const Player = (name, gamePiece) => {
 let player1;
 let player2;
 
+const players = (function() {
+    function createPlayers() {
+        const playerOneValue = document.querySelector('#playerOne').value;
+        const playerTwoValue = document.querySelector('#playerTwo').value;
+        
+        player1 = Player(playerOneValue, 'X');
+        player2 = Player(playerTwoValue, 'O');
+    }
+
+    return {
+        createPlayers: createPlayers,
+    }
+})()
+
 const gameboard = (function() {
     let gameboard = {
         row1: [],
@@ -27,31 +41,32 @@ const gameControls = (function() {
     const submitBtn = document.querySelector('#submitBtn');
 
     let tempVar = 'X';
+    let currentPlayer;
 
-    function createPlayers() {
-        const playerOneValue = document.querySelector('#playerOne').value;
-        const playerTwoValue = document.querySelector('#playerTwo').value;
-        
-        player1 = Player(playerOneValue, 'X');
-        player2 = Player(playerTwoValue, 'O');        
+    function whosNext(current) {
+        if (current == player1) {
+            currentPlayer = player2;
+        } else {
+            currentPlayer = player1;
+        }
     }
+
+    function updateSquareDisplay(square) {
+        square.innerHTML = currentPlayer['gamePiece'];
+        whosNext(currentPlayer);    
+    }
+
 
     gameSquare.forEach((square) => {
         square.addEventListener('click', (e) => {
-
-            if (tempVar == 'X') {
-                tempVar = 'O';
-            } else {
-                tempVar = 'X';
-            }
-
-            gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, tempVar);
+            updateSquareDisplay(square);
+            gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, tempVar); 
         })
     })
 
     submitBtn.addEventListener('click', () => {
-        console.log('click');
-        createPlayers();
+        players.createPlayers();
+        currentPlayer = player1;
     })
 
     return {
