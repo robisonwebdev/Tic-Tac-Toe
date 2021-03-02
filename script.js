@@ -6,6 +6,9 @@ let player1;
 let player2;
 
 const players = (function() {
+    let player1Score = 0;
+    let player2Score = 0;
+
     function createPlayers() {
         const playerOneValue = document.querySelector('#playerOne').value;
         const playerTwoValue = document.querySelector('#playerTwo').value;
@@ -14,8 +17,26 @@ const players = (function() {
         player2 = Player(playerTwoValue, 'O');
     }
 
+    function updateScore(player) {
+        if (player == 'player1') {
+            player1Score += 1;
+        } else if (player == 'player2') {
+            player2Score += 1;
+        }
+    }
+
+    function returnPlayerScore(player) {
+        if (player == 'player1') {
+            return player1Score;
+        } else if (player == 'player2') {
+            return player2Score;
+        }
+    }
+
     return {
         createPlayers: createPlayers,
+        playerScore: returnPlayerScore,
+        updateScore: updateScore,
     }
 })()
 
