@@ -37,7 +37,7 @@ const gameboard = (function() {
 })();
 
 const gameControls = (function() {
-    const gameSquare = document.querySelectorAll('.gameSquare');
+    
     const submitBtn = document.querySelector('#submitBtn');
 
     let tempVar = 'X';
@@ -56,15 +56,22 @@ const gameControls = (function() {
         whosNext(currentPlayer);    
     }
 
+    function gameSquareEventListener() {
+        const gameSquare = document.querySelectorAll('.gameSquare');
 
-    gameSquare.forEach((square) => {
-        square.addEventListener('click', (e) => {
-            updateSquareDisplay(square);
-            gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, square.innerHTML); 
+        gameSquare.forEach((square) => {
+            square.addEventListener('click', (e) => {
+                updateSquareDisplay(square);
+                gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, square.innerHTML); 
+            })
         })
-    })
+    }
+
+
+    
 
     submitBtn.addEventListener('click', () => {
+        gameSquareEventListener();
         players.createPlayers();
         currentPlayer = player1;
     })
