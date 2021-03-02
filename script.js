@@ -108,7 +108,7 @@ const gameControls = (function() {
     })
 
     quitBtn.addEventListener('click', () => {
-        
+        clearSquaresDisplay();
     })
 
     gameButtonsDisplay(false);
