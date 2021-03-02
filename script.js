@@ -1,10 +1,3 @@
-// const Player = (name, gamePiece) => {
-//     return {name, gamePiece};
-// };
-
-// let player1;
-// let player2;
-
 const players = (function() {
     const Player = (name, gamePiece, score) => {
         return {name, gamePiece, score}
@@ -84,6 +77,8 @@ const gameControls = (function() {
     const quitBtn = document.querySelector('#quitBtn');
 
     let currentPlayer;
+    let player1;
+    let player2;
 
     function whosNext(current) {
         if (current == player1) {
@@ -93,8 +88,13 @@ const gameControls = (function() {
         }
     }
 
+    function setPlayers() {
+        player1 = players.returnPlayer('player1');
+        player2 = players.returnPlayer('player2');
+    }
+
     function updateSquareDisplay(square) {
-        square.innerHTML = currentPlayer['gamePiece'];
+        square.innerHTML = currentPlayer.gamePiece;
         whosNext(currentPlayer);    
     }
 
@@ -131,6 +131,7 @@ const gameControls = (function() {
 
     submitBtn.addEventListener('click', () => {
         players.createPlayers();
+        setPlayers();
         currentPlayer = player1;
         gameSquareEventListener();
         playerInputDisplay(false);
