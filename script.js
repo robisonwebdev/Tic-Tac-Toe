@@ -48,7 +48,6 @@ const gameControls = (function() {
     const playAgainBtn = document.querySelector('#playAgainBtn');
     const quitBtn = document.querySelector('#quitBtn');
 
-    let tempVar = 'X';
     let currentPlayer;
 
     function whosNext(current) {
@@ -109,36 +108,3 @@ const gameControls = (function() {
         
     }
 })();
-
-    
-
-
-
-
-// Saved for later
-// e.target.dataset.row
-
-
-
-// let myArray = [
-//     {
-//         row1: 
-//             {
-//                 square1: 'X',
-//                 square2: 'X',
-//                 square3: 'O'
-//             },
-//         row2: 
-//             {
-//                 square1: 'O',
-//                 square2: 'X',
-//                 square3: 'O'
-//             },
-//         row3: 
-//             {
-//                 square1: 'X',
-//                 square2: 'X',
-//                 square3: 'X'
-//             }
-//     }
-// ]
