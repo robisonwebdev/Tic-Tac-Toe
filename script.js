@@ -1,35 +1,48 @@
-const Player = (name, gamePiece) => {
-    return {name, gamePiece};
-};
+// const Player = (name, gamePiece) => {
+//     return {name, gamePiece};
+// };
 
-let player1;
-let player2;
+// let player1;
+// let player2;
 
 const players = (function() {
-    let player1Score = 0;
-    let player2Score = 0;
+    const Player = (name, gamePiece, score) => {
+        return {name, gamePiece, score}
+    };
+
+    let player1;
+    let player2;
 
     function createPlayers() {
+
         const playerOneValue = document.querySelector('#playerOne').value;
         const playerTwoValue = document.querySelector('#playerTwo').value;
         
-        player1 = Player(playerOneValue, 'X');
-        player2 = Player(playerTwoValue, 'O');
+        player1 = Player(playerOneValue, 'X', 0);
+        player2 = Player(playerTwoValue, 'O', 0);
     }
 
     function updateScore(player) {
         if (player == 'player1') {
-            player1Score += 1;
+            player1.score += 1;
         } else if (player == 'player2') {
-            player2Score += 1;
+            player2.score += 1;
         }
     }
 
     function returnPlayerScore(player) {
         if (player == 'player1') {
-            return player1Score;
+            return player1.score;
         } else if (player == 'player2') {
-            return player2Score;
+            return player2.score;
+        }
+    }
+
+    function returnPlayer(player) {
+        if (player == 'player1') {
+            return player1;
+        } else if (player == 'player2') {
+            return player2;
         }
     }
 
@@ -37,6 +50,7 @@ const players = (function() {
         createPlayers: createPlayers,
         playerScore: returnPlayerScore,
         updateScore: updateScore,
+        returnPlayer: returnPlayer,
     }
 })()
 
