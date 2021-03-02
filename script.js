@@ -66,6 +66,12 @@ const gameControls = (function() {
         })
     }
 
+    function gameButtonsDisplay(boolean) {
+        const gameButtons =  document.querySelector('#gameButtons');
+    
+        boolean ? gameButtons.classList.remove('displayRemove') : gameButtons.classList.add('displayRemove');
+    }
+
     function playerInputDisplay(boolean) {
         const playerInput = document.querySelector('#playerInput');
 
@@ -77,7 +83,10 @@ const gameControls = (function() {
         currentPlayer = player1;
         gameSquareEventListener();
         playerInputDisplay(false);
+        gameButtonsDisplay(true);
     })
+
+    gameButtonsDisplay(false);
     
     return {
         
