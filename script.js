@@ -36,8 +36,7 @@ const gameboard = (function() {
     }
 })();
 
-const gameControls = (function() {
-    
+const gameControls = (function() {    
     const submitBtn = document.querySelector('#submitBtn');
 
     let tempVar = 'X';
@@ -67,15 +66,19 @@ const gameControls = (function() {
         })
     }
 
+    function playerInputDisplay(boolean) {
+        const playerInput = document.querySelector('#playerInput');
 
-    
+        boolean ? playerInput.classList.remove('displayRemove') : playerInput.classList.add('displayRemove');
+    }
 
     submitBtn.addEventListener('click', () => {
-        gameSquareEventListener();
         players.createPlayers();
         currentPlayer = player1;
+        gameSquareEventListener();
+        playerInputDisplay(false);
     })
-
+    
     return {
         
     }
