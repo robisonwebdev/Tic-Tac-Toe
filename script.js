@@ -38,6 +38,7 @@ const gameboard = (function() {
 
 const gameControls = (function() {    
     const submitBtn = document.querySelector('#submitBtn');
+    const playAgainBtn = document.querySelector('#playAgainBtn');
 
     let tempVar = 'X';
     let currentPlayer;
@@ -84,6 +85,10 @@ const gameControls = (function() {
         gameSquareEventListener();
         playerInputDisplay(false);
         gameButtonsDisplay(true);
+    })
+
+    playAgainBtn.addEventListener('click', () => {
+        
     })
 
     gameButtonsDisplay(false);
