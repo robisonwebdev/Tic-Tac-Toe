@@ -63,6 +63,14 @@ const gameControls = (function() {
         whosNext(currentPlayer);    
     }
 
+    function clearSquaresDisplay() {
+        const gameSquare = document.querySelectorAll('.gameSquare');
+
+        gameSquare.forEach((square) => {
+            square.innerHTML = '';
+        })
+    }
+
     function gameSquareEventListener() {
         const gameSquare = document.querySelectorAll('.gameSquare');
 
@@ -95,7 +103,8 @@ const gameControls = (function() {
     })
 
     playAgainBtn.addEventListener('click', () => {
-        
+        gameboard.reset();
+        clearSquaresDisplay();
     })
 
     quitBtn.addEventListener('click', () => {
