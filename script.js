@@ -108,6 +108,7 @@ const gameControls = (function() {
     })
 
     quitBtn.addEventListener('click', () => {
+        gameboard.reset();
         clearSquaresDisplay();
     })
 
