@@ -30,8 +30,15 @@ const gameboard = (function() {
         gameboard[row][square] = value;
     }
 
+    function resetGameBoard() {
+        gameboard.row1 = [];
+        gameboard.row2 = [];
+        gameboard.row3 = [];
+    }
+
     return {
         updateSquare: updateSquare,
+        reset: resetGameBoard,
         gameboard: gameboard,
     }
 })();
