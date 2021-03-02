@@ -37,7 +37,7 @@ const gameboard = (function() {
     }
 
     return {
-        updateSquare: updateSquare,
+        update: updateSquare,
         reset: resetGameBoard,
         gameboard: gameboard,
     }
@@ -70,7 +70,7 @@ const gameControls = (function() {
         gameSquare.forEach((square) => {
             square.addEventListener('click', (e) => {
                 updateSquareDisplay(square);
-                gameboard.updateSquare(e.target.dataset.row, e.target.dataset.square, square.innerHTML); 
+                gameboard.update(e.target.dataset.row, e.target.dataset.square, square.innerHTML); 
             })
         })
     }
