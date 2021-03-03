@@ -1,14 +1,14 @@
 const gameboard = (function() {
     let gameboard = {
-        row1: [],
-        row2: [],
-        row3: []
+        row1: [,,],
+        row2: [,,],
+        row3: [,,]
     };
 
     function resetGameBoard() {
-        gameboard.row1 = [];
-        gameboard.row2 = [];
-        gameboard.row3 = [];
+        gameboard.row1 = [,,];
+        gameboard.row2 = [,,];
+        gameboard.row3 = [,,];
     }
 
     function updateSquare(row, square, value) {
@@ -31,6 +31,38 @@ const gameControls = (function() {
     let player1;
     let player2;
 
+    function determineWinner() {
+        let r1s0 = gameboard.gameboard.row1[0]
+        let r1s1 = gameboard.gameboard.row1[1]
+        let r1s2 = gameboard.gameboard.row1[2]
+
+        let r2s0 = gameboard.gameboard.row2[0]
+        let r2s1 = gameboard.gameboard.row2[1]
+        let r2s2 = gameboard.gameboard.row2[2]
+
+        let r3s0 = gameboard.gameboard.row3[0]
+        let r3s1 = gameboard.gameboard.row3[1]
+        let r3s2 = gameboard.gameboard.row3[2]
+
+        if (r1s0 == 'X' && r2s0 == 'X' && r3s0 == 'X' || r1s0 == 'O' && r2s0 == 'O' && r3s0 == 'O') {
+            (r1s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r1s1 == 'X' && r2s1 == 'X' && r3s1 == 'X' || r1s1 == 'O' && r2s1 == 'O' && r3s1 == 'O') {
+            (r1s1 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r1s2 == 'X' && r2s2 == 'X' && r3s2 == 'X' || r1s2 == 'O' && r2s2 == 'O' && r3s2 == 'O') {
+            (r1s2 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r1s0 == 'X' && r1s1 == 'X' && r1s2 == 'X' || r1s0 == 'O' && r1s1 == 'O' && r1s2 == 'O') {
+            (r1s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r2s0 == 'X' && r2s1 == 'X' && r2s2 == 'X' || r2s0 == 'O' && r2s1 == 'O' && r2s2 == 'O') {
+            (r2s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r3s0 == 'X' && r3s1 == 'X' && r3s2 == 'X' || r3s0 == 'O' && r3s1 == 'O' && r3s2 == 'O') {
+            (r3s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r1s0 == 'X' && r2s1 == 'X' && r3s2 == 'X' || r1s0 == 'O' && r2s1 == 'O' && r3s2 == 'O') {
+            (r1s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        } else if (r1s2 == 'X' && r2s1 == 'X' && r3s0 == 'X' || r1s2 == 'O' && r2s1 == 'O' && r3s0 == 'O') {
+            (r1s2 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+        }
+    }
+
     function clearSquaresDisplay() {
         const gameSquare = document.querySelectorAll('.gameSquare');
 
@@ -51,7 +83,8 @@ const gameControls = (function() {
         gameSquare.forEach((square) => {
             square.addEventListener('click', (e) => {
                 updateSquareDisplay(square);
-                gameboard.update(e.target.dataset.row, e.target.dataset.square, square.innerHTML); 
+                gameboard.update(e.target.dataset.row, e.target.dataset.square, square.innerHTML);
+                determineWinner();
             })
         })
     }
