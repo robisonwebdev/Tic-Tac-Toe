@@ -58,6 +58,14 @@ body {
     align-items: center;
 }
 
+#scoreboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
 #gameTitle {
     font-size: 32px;
 }
