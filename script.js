@@ -37,6 +37,12 @@ const gameControls = (function() {
         winnerText.innerHTML = `${players.returnPlayer(player).name} Wins!`;
     }
 
+    function clearDisplayWinner() {
+        const winnerText = document.querySelector('#winnerText');
+
+        winnerText.innerHTML = '';
+    }
+
     function updatePlayerScore(player) {
         players.updateScore(player);
     }
@@ -144,11 +150,13 @@ const gameControls = (function() {
     playAgainBtn.addEventListener('click', () => {
         gameboard.reset();
         clearSquaresDisplay();
+        clearDisplayWinner();
     })
 
     quitBtn.addEventListener('click', () => {
         gameboard.reset();
         clearSquaresDisplay();
+        clearDisplayWinner();
     })
 
     submitBtn.addEventListener('click', () => {
