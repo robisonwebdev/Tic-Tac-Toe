@@ -31,6 +31,19 @@ const gameControls = (function() {
     let player1;
     let player2;
 
+    function displayWinner(player) {
+        const player1Score = document.querySelector('#player1Score');
+        const player2Score = document.querySelector('#player2Score');
+
+        players.updateScore(player);
+        
+        if (player == 'player1') {
+            player1Score.innerHTML = players.playerScore('player1');
+        } else if (player == 'player2') {
+            player2Score.innerHTML = players.playerScore('player2');
+        }
+    }
+
     function determineWinner() {
         let r1s0 = gameboard.gameboard.row1[0]
         let r1s1 = gameboard.gameboard.row1[1]
@@ -44,8 +57,9 @@ const gameControls = (function() {
         let r3s1 = gameboard.gameboard.row3[1]
         let r3s2 = gameboard.gameboard.row3[2]
 
+
         if (r1s0 == 'X' && r2s0 == 'X' && r3s0 == 'X' || r1s0 == 'O' && r2s0 == 'O' && r3s0 == 'O') {
-            (r1s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r1s0 == 'X') ? displayWinner('player1') : displayWinner('player2') ;
         } else if (r1s1 == 'X' && r2s1 == 'X' && r3s1 == 'X' || r1s1 == 'O' && r2s1 == 'O' && r3s1 == 'O') {
             (r1s1 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
         } else if (r1s2 == 'X' && r2s2 == 'X' && r3s2 == 'X' || r1s2 == 'O' && r2s2 == 'O' && r3s2 == 'O') {
