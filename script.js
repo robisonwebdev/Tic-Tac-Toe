@@ -31,8 +31,10 @@ const gameControls = (function() {
     let player1;
     let player2;
 
-    function displayWinner(player) {        
-        console.log('You Win');
+    function displayWinner(player) {    
+        const winnerText = document.querySelector('#winnerText');
+
+        winnerText.innerHTML = `${players.returnPlayer(player).name} Wins!`;
     }
 
     function updatePlayerScore(player) {
@@ -53,7 +55,7 @@ const gameControls = (function() {
     function winner(player) {
         updatePlayerScore(player);
         updateScoreDisplay(player);
-        displayWinner();
+        displayWinner(player);
     }
 
     function determineWinner() {
