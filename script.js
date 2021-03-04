@@ -95,7 +95,7 @@ const gameControls = (function() {
     function displayWinner(player) {    
         const winnerText = document.querySelector('#winnerText');
 
-        winnerText.innerHTML = `${players.returnPlayer(player).name} Wins!`;
+        winnerText.innerHTML = `${players.getPlayer(player).name} Wins!`;
     }
 
     function gameButtonsDisplay(boolean) {
@@ -146,8 +146,8 @@ const gameControls = (function() {
     }
 
     function setPlayers() {
-        player1 = players.returnPlayer('player1');
-        player2 = players.returnPlayer('player2');
+        player1 = players.getPlayer('player1');
+        player2 = players.getPlayer('player2');
     }
 
     function startGame() {
@@ -239,7 +239,7 @@ const players = (function() {
         player2 = undefined;
     }
 
-    function returnPlayer(player) {
+    function getPlayer(player) {
         if (player == 'player1') {
             return player1;
         } else if (player == 'player2') {
@@ -267,7 +267,7 @@ const players = (function() {
         create: createPlayers,
         delete: deletePlayers,
         getScore: returnPlayerScore,
-        returnPlayer: returnPlayer,
+        getPlayer: getPlayer,
         updateScore: updateScore,
     }
 })()
