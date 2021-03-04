@@ -32,7 +32,6 @@ const gameControls = (function() {
     let player2;
 
     let gameSquareFunctions = function(e) {
-        console.log(e);
         updateSquareDisplay(e.target);
         gameboard.update(e.target.dataset.row, e.target.dataset.square, e.target.innerHTML);
         determineWinner();
