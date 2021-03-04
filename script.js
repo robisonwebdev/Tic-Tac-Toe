@@ -31,6 +31,13 @@ const gameControls = (function() {
     let player1;
     let player2;
 
+    let gameSquareFunctions = function(e) {
+        console.log(e);
+        updateSquareDisplay(e.target);
+        gameboard.update(e.target.dataset.row, e.target.dataset.square, e.target.innerHTML);
+        determineWinner();
+    }
+
     function displayWinner(player) {    
         const winnerText = document.querySelector('#winnerText');
 
@@ -62,6 +69,7 @@ const gameControls = (function() {
         updatePlayerScore(player);
         updateScoreDisplay(player);
         displayWinner(player);
+        gameSquareEventListener(false)
     }
 
     function determineWinner() {
@@ -111,15 +119,15 @@ const gameControls = (function() {
         boolean ? gameButtons.classList.remove('displayRemove') : gameButtons.classList.add('displayRemove');
     }
 
-    function gameSquareEventListener() {
+    function gameSquareEventListener(val) {
         const gameSquare = document.querySelectorAll('.gameSquare');
 
         gameSquare.forEach((square) => {
-            square.addEventListener('click', (e) => {
-                updateSquareDisplay(square);
-                gameboard.update(e.target.dataset.row, e.target.dataset.square, square.innerHTML);
-                determineWinner();
-            })
+            if (val) {
+                square.addEventListener('click', gameSquareFunctions)
+            } else if (!val) {
+                square.removeEventListener('click', gameSquareFunctions)
+            }
         })
     }
 
@@ -151,19 +159,21 @@ const gameControls = (function() {
         gameboard.reset();
         clearSquaresDisplay();
         clearDisplayWinner();
+        gameSquareEventListener(true);
     })
 
     quitBtn.addEventListener('click', () => {
         gameboard.reset();
         clearSquaresDisplay();
         clearDisplayWinner();
+        gameSquareEventListener(false);
     })
 
     submitBtn.addEventListener('click', () => {
         players.createPlayers();
         setPlayers();
         currentPlayer = player1;
-        gameSquareEventListener();
+        gameSquareEventListener(true);
         playerInputDisplay(false);
         gameButtonsDisplay(true);
     })
