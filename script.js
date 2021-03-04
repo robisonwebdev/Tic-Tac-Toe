@@ -109,6 +109,15 @@ const gameControls = (function() {
         })
     }
 
+    function playAgain() {
+        gameboard.reset();
+ 
+        clearDisplayWinner();
+        clearSquaresDisplay();
+
+        gameSquareEventListener(true);
+    }
+
     function playerInputDisplay(boolean) {
         const playerInput = document.querySelector('#playerInput');
 
@@ -172,10 +181,7 @@ const gameControls = (function() {
     }
 
     playAgainBtn.addEventListener('click', () => {
-        gameboard.reset();
-        clearSquaresDisplay();
-        clearDisplayWinner();
-        gameSquareEventListener(true);
+        playAgain();
     })
 
     quitBtn.addEventListener('click', () => {
