@@ -68,19 +68,19 @@ const gameControls = (function() {
         if (r1s0 == 'X' && r2s0 == 'X' && r3s0 == 'X' || r1s0 == 'O' && r2s0 == 'O' && r3s0 == 'O') {
             (r1s0 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r1s1 == 'X' && r2s1 == 'X' && r3s1 == 'X' || r1s1 == 'O' && r2s1 == 'O' && r3s1 == 'O') {
-            (r1s1 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r1s1 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r1s2 == 'X' && r2s2 == 'X' && r3s2 == 'X' || r1s2 == 'O' && r2s2 == 'O' && r3s2 == 'O') {
-            (r1s2 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r1s2 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r1s0 == 'X' && r1s1 == 'X' && r1s2 == 'X' || r1s0 == 'O' && r1s1 == 'O' && r1s2 == 'O') {
-            (r1s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r1s0 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r2s0 == 'X' && r2s1 == 'X' && r2s2 == 'X' || r2s0 == 'O' && r2s1 == 'O' && r2s2 == 'O') {
-            (r2s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r2s0 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r3s0 == 'X' && r3s1 == 'X' && r3s2 == 'X' || r3s0 == 'O' && r3s1 == 'O' && r3s2 == 'O') {
-            (r3s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r3s0 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r1s0 == 'X' && r2s1 == 'X' && r3s2 == 'X' || r1s0 == 'O' && r2s1 == 'O' && r3s2 == 'O') {
-            (r1s0 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r1s0 == 'X') ? winner('player1') : winner('player2') ;
         } else if (r1s2 == 'X' && r2s1 == 'X' && r3s0 == 'X' || r1s2 == 'O' && r2s1 == 'O' && r3s0 == 'O') {
-            (r1s2 == 'X') ? console.log('X Wins!') : console.log('O Wins!') ;
+            (r1s2 == 'X') ? winner('player1') : winner('player2') ;
         }
     }
 
