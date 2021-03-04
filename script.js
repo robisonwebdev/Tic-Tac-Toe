@@ -38,41 +38,18 @@ const gameControls = (function() {
         determineWinner();
     }
 
-    function displayWinner(player) {    
-        const winnerText = document.querySelector('#winnerText');
-
-        winnerText.innerHTML = `${players.returnPlayer(player).name} Wins!`;
-    }
-
     function clearDisplayWinner() {
         const winnerText = document.querySelector('#winnerText');
 
         winnerText.innerHTML = '';
     }
 
-    function updatePlayerScore(player) {
-        players.updateScore(player);
-    }
+    function clearSquaresDisplay() {
+        const gameSquare = document.querySelectorAll('.gameSquare');
 
-    function updateScoreDisplay(player) {
-        const player1Score = document.querySelector('#player1Score');
-        const player2Score = document.querySelector('#player2Score');
-
-        if (player == 'player1') {
-            player1Score.innerHTML = players.playerScore('player1');
-        } else if (player == 'player2') {
-            player2Score.innerHTML = players.playerScore('player2');
-        } else if (player == 'clear') {
-            player1Score.innerHTML = '0';
-            player2Score.innerHTML = '0';
-        }
-    }
-
-    function winner(player) {
-        updatePlayerScore(player);
-        updateScoreDisplay(player);
-        displayWinner(player);
-        gameSquareEventListener(false)
+        gameSquare.forEach((square) => {
+            square.innerHTML = '';
+        })
     }
 
     function determineWinner() {
@@ -108,12 +85,10 @@ const gameControls = (function() {
         }
     }
 
-    function clearSquaresDisplay() {
-        const gameSquare = document.querySelectorAll('.gameSquare');
+    function displayWinner(player) {    
+        const winnerText = document.querySelector('#winnerText');
 
-        gameSquare.forEach((square) => {
-            square.innerHTML = '';
-        })
+        winnerText.innerHTML = `${players.returnPlayer(player).name} Wins!`;
     }
 
     function gameButtonsDisplay(boolean) {
@@ -158,6 +133,24 @@ const gameControls = (function() {
         player2 = players.returnPlayer('player2');
     }
 
+    function updatePlayerScore(player) {
+        players.updateScore(player);
+    }
+
+    function updateScoreDisplay(player) {
+        const player1Score = document.querySelector('#player1Score');
+        const player2Score = document.querySelector('#player2Score');
+
+        if (player == 'player1') {
+            player1Score.innerHTML = players.playerScore('player1');
+        } else if (player == 'player2') {
+            player2Score.innerHTML = players.playerScore('player2');
+        } else if (player == 'clear') {
+            player1Score.innerHTML = '0';
+            player2Score.innerHTML = '0';
+        }
+    }
+
     function updateSquareDisplay(square) {
         square.innerHTML = currentPlayer.gamePiece;
         whosNext(currentPlayer);    
@@ -169,6 +162,13 @@ const gameControls = (function() {
         } else {
             currentPlayer = player1;
         }
+    }
+
+    function winner(player) {
+        updatePlayerScore(player);
+        updateScoreDisplay(player);
+        displayWinner(player);
+        gameSquareEventListener(false)
     }
 
     playAgainBtn.addEventListener('click', () => {
