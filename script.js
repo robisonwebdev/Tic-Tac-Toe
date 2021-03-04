@@ -43,6 +43,14 @@ const gameControls = (function() {
         winnerText.innerHTML = '';
     }
 
+    function clearPlayerInputs() {
+        const playerOneInput = document.querySelector('#playerOne');
+        const playerTwoInput = document.querySelector('#playerTwo');
+
+        playerOneInput.value = '';
+        playerTwoInput.value = '';
+    }
+
     function clearSquaresDisplay() {
         const gameSquare = document.querySelectorAll('.gameSquare');
 
@@ -128,6 +136,7 @@ const gameControls = (function() {
         gameboard.reset();        
 
         clearDisplayWinner();
+        clearPlayerInputs();
         clearSquaresDisplay();
 
         gameButtonsDisplay(false);
