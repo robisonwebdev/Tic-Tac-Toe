@@ -150,6 +150,17 @@ const gameControls = (function() {
         player2 = players.returnPlayer('player2');
     }
 
+    function startGame() {
+        players.create();
+
+        setPlayers();
+        currentPlayer = player1;
+
+        gameSquareEventListener(true);
+        playerInputDisplay(false);
+        gameButtonsDisplay(true);
+    }
+
     function updatePlayerScore(player) {
         players.updateScore(player);
     }
@@ -197,12 +208,7 @@ const gameControls = (function() {
     })
 
     submitBtn.addEventListener('click', () => {
-        players.create();
-        setPlayers();
-        currentPlayer = player1;
-        gameSquareEventListener(true);
-        playerInputDisplay(false);
-        gameButtonsDisplay(true);
+        startGame();
     })
 
     gameButtonsDisplay(false);
