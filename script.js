@@ -170,9 +170,9 @@ const gameControls = (function() {
         const player2Score = document.querySelector('#player2Score');
 
         if (player == 'player1') {
-            player1Score.innerHTML = players.playerScore('player1');
+            player1Score.innerHTML = players.getScore('player1');
         } else if (player == 'player2') {
-            player2Score.innerHTML = players.playerScore('player2');
+            player2Score.innerHTML = players.getScore('player2');
         } else if (player == 'clear') {
             player1Score.innerHTML = '0';
             player2Score.innerHTML = '0';
@@ -266,7 +266,7 @@ const players = (function() {
     return {
         create: createPlayers,
         delete: deletePlayers,
-        playerScore: returnPlayerScore,
+        getScore: returnPlayerScore,
         returnPlayer: returnPlayer,
         updateScore: updateScore,
     }
