@@ -137,6 +137,13 @@ const gameControls = (function() {
         boolean ? playerInput.classList.remove('displayRemove') : playerInput.classList.add('displayRemove');
     }
 
+    function quitGame() {
+        gameboard.reset();
+        players.delete();
+        clearSquaresDisplay();
+        gameSquareEventListener(false);
+    }
+
     function setPlayers() {
         player1 = players.returnPlayer('player1');
         player2 = players.returnPlayer('player2');
@@ -163,10 +170,7 @@ const gameControls = (function() {
     })
 
     quitBtn.addEventListener('click', () => {
-        gameboard.reset();
-        clearSquaresDisplay();
-        clearDisplayWinner();
-        gameSquareEventListener(false);
+        quitGame();
     })
 
     submitBtn.addEventListener('click', () => {
@@ -194,12 +198,16 @@ const players = (function() {
     let player2;
 
     function createPlayers() {
-
         const playerOneValue = document.querySelector('#playerOne').value;
         const playerTwoValue = document.querySelector('#playerTwo').value;
         
         player1 = Player(playerOneValue, 'X', 0);
         player2 = Player(playerTwoValue, 'O', 0);
+    }
+
+    function deletePlayers() {
+        player1 = undefined;
+        player2 = undefined;
     }
 
     function returnPlayer(player) {
@@ -228,6 +236,7 @@ const players = (function() {
 
     return {
         createPlayers: createPlayers,
+        delete: deletePlayers,
         playerScore: returnPlayerScore,
         returnPlayer: returnPlayer,
         updateScore: updateScore,
