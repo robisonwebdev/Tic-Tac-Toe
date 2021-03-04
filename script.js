@@ -188,7 +188,7 @@ const gameControls = (function() {
     })
 
     submitBtn.addEventListener('click', () => {
-        players.createPlayers();
+        players.create();
         setPlayers();
         currentPlayer = player1;
         gameSquareEventListener(true);
@@ -249,7 +249,7 @@ const players = (function() {
     }
 
     return {
-        createPlayers: createPlayers,
+        create: createPlayers,
         delete: deletePlayers,
         playerScore: returnPlayerScore,
         returnPlayer: returnPlayer,
