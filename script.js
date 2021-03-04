@@ -62,7 +62,10 @@ const gameControls = (function() {
             player1Score.innerHTML = players.playerScore('player1');
         } else if (player == 'player2') {
             player2Score.innerHTML = players.playerScore('player2');
-        } 
+        } else if (player == 'clear') {
+            player1Score.innerHTML = '0';
+            player2Score.innerHTML = '0';
+        }
     }
 
     function winner(player) {
@@ -146,7 +149,8 @@ const gameControls = (function() {
 
         gameButtonsDisplay(false);
         gameSquareEventListener(false);
-        playerInputDisplay(true);        
+        playerInputDisplay(true);
+        updateScoreDisplay('clear');
     }
 
     function setPlayers() {
