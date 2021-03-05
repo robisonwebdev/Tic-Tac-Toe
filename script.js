@@ -35,6 +35,7 @@ const gameControls = (function() {
         updateSquareDisplay(e.target);
         gameboard.update(e.target.dataset.row, e.target.dataset.square, e.target.innerHTML);
         determineWinner();
+        e.target.removeEventListener('click', gameSquareFunctions);
     }
 
     function clearDisplayWinner() {
@@ -109,9 +110,9 @@ const gameControls = (function() {
 
         gameSquare.forEach((square) => {
             if (val) {
-                square.addEventListener('click', gameSquareFunctions)
+                square.addEventListener('click', gameSquareFunctions);
             } else if (!val) {
-                square.removeEventListener('click', gameSquareFunctions)
+                square.removeEventListener('click', gameSquareFunctions);
             }
         })
     }
