@@ -143,6 +143,7 @@ const gameControls = (function() {
         gameButtonsDisplay(false);
         gameSquareEventListener(false);
         playerInputDisplay(true);
+        updatePlayerNameDisplay(false);
         updateScoreDisplay('clear');
     }
 
@@ -157,9 +158,23 @@ const gameControls = (function() {
         setPlayers();
         currentPlayer = player1;
 
+        gameButtonsDisplay(true);
         gameSquareEventListener(true);
         playerInputDisplay(false);
-        gameButtonsDisplay(true);
+        updatePlayerNameDisplay(true);
+    }
+
+    function updatePlayerNameDisplay(boolean) {
+        const player1Display = document.querySelector('#player1Display');
+        const player2Display = document.querySelector('#player2Display');
+
+        if (boolean) {
+            player1Display.innerHTML = players.getPlayer('player1').name;
+            player2Display.innerHTML = players.getPlayer('player2').name;
+        } else if (!boolean) {
+            player1Display.innerHTML = 'Player X';
+            player2Display.innerHTML = 'Player O';
+        }
     }
 
     function updatePlayerScore(player) {
