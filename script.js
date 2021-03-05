@@ -184,6 +184,21 @@ const gameControls = (function() {
         whosNext(currentPlayer);    
     }
 
+    function validateForm() {
+        const playerOneInput = document.querySelector('#playerOne').value;
+        const playerTwoInput = document.querySelector('#playerTwo').value;
+
+        if (playerOneInput == '' && playerTwoInput == '') {
+            alert('Both player names missing. Enter player names.')
+        } else if (playerOneInput == '') {
+            alert('Player 1 name is missing. Enter player 1 name.')
+        } else if (playerTwoInput == '') {
+            alert('Player 2 name is missing. Enter player 2 name.') 
+        } else {
+            startGame();
+        }
+    }
+
     function whosNext(current) {
         if (current == player1) {
             currentPlayer = player2;
@@ -199,6 +214,7 @@ const gameControls = (function() {
         gameSquareEventListener(false)
     }
 
+
     playAgainBtn.addEventListener('click', () => {
         playAgain();
     })
@@ -208,7 +224,7 @@ const gameControls = (function() {
     })
 
     submitBtn.addEventListener('click', () => {
-        startGame();
+        validateForm();
     })
 
     gameButtonsDisplay(false);
