@@ -30,6 +30,12 @@ const gameControls = (function() {
     let currentPlayer;
     let player1;
     let player2;
+    let clickTracker = 0;
+    let winnerTracker = false;
+
+    function tieGame() {
+        console.log('Tie Game!');
+    }
 
     let gameSquareFunctions = function(e) {
         updateSquareDisplay(e.target);
@@ -73,25 +79,30 @@ const gameControls = (function() {
         let r3s1 = gameboard.gameboard.row3[1]
         let r3s2 = gameboard.gameboard.row3[2]
 
+        clickTracker++;
 
         if (r1s0 == 'X' && r2s0 == 'X' && r3s0 == 'X' || r1s0 == 'O' && r2s0 == 'O' && r3s0 == 'O') {
-            (r1s0 == 'X') ? winner('player1') : winner('player2') ;
+            (r1s0 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r1s1 == 'X' && r2s1 == 'X' && r3s1 == 'X' || r1s1 == 'O' && r2s1 == 'O' && r3s1 == 'O') {
-            (r1s1 == 'X') ? winner('player1') : winner('player2') ;
+            (r1s1 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r1s2 == 'X' && r2s2 == 'X' && r3s2 == 'X' || r1s2 == 'O' && r2s2 == 'O' && r3s2 == 'O') {
-            (r1s2 == 'X') ? winner('player1') : winner('player2') ;
+            (r1s2 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r1s0 == 'X' && r1s1 == 'X' && r1s2 == 'X' || r1s0 == 'O' && r1s1 == 'O' && r1s2 == 'O') {
-            (r1s0 == 'X') ? winner('player1') : winner('player2') ;
+            (r1s0 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r2s0 == 'X' && r2s1 == 'X' && r2s2 == 'X' || r2s0 == 'O' && r2s1 == 'O' && r2s2 == 'O') {
-            (r2s0 == 'X') ? winner('player1') : winner('player2') ;
+            (r2s0 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r3s0 == 'X' && r3s1 == 'X' && r3s2 == 'X' || r3s0 == 'O' && r3s1 == 'O' && r3s2 == 'O') {
-            (r3s0 == 'X') ? winner('player1') : winner('player2') ;
+            (r3s0 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r1s0 == 'X' && r2s1 == 'X' && r3s2 == 'X' || r1s0 == 'O' && r2s1 == 'O' && r3s2 == 'O') {
-            (r1s0 == 'X') ? winner('player1') : winner('player2') ;
+            (r1s0 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
         } else if (r1s2 == 'X' && r2s1 == 'X' && r3s0 == 'X' || r1s2 == 'O' && r2s1 == 'O' && r3s0 == 'O') {
-            (r1s2 == 'X') ? winner('player1') : winner('player2') ;
+            (r1s2 == 'X') ? (winner('player1'), winnerTracker = true) : (winner('player2'), winnerTracker = true) ;
+        } else if (clickTracker == 9 && winnerTracker == false) {
+            tieGame();
         }
     }
+
+
 
     function displayWinner(player) {    
         const winnerText = document.querySelector('#winnerText');
