@@ -194,3 +194,15 @@ label {
 .displayRemove {
     display: none;
 }
+
+#footer {
+    margin-bottom: 5px;
+}
+
+small {
+    color: var(--liteGreen);
+}
+
+a {
+    color: var(--liteGreen);
+}
