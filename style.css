@@ -3,12 +3,20 @@
     padding: 0;
 }
 
+:root {
+    --darkBlue: #00303f;
+    --liteGreen: #cae4db;
+    --tan: #cdac81;
+    --white: #f5f4f4;
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 
+    background-color: var(--darkBlue);
     height: 100vh;
     width: 100vw;
 }
@@ -38,29 +46,31 @@ body {
     justify-content: center;
     align-items: center;
 
+    background-color: var(--tan);
+    color: var(--darkBlue);
     font-size: 60px;
     height: 90px;
     width: 90px;
 }
 
 #player1Display {
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid var(--darkBlue);
+    border-bottom: 1px solid var(--darkBlue);
 }
 
 .displayHighlightLeft {
-    -webkit-box-shadow: 10px 10px 12px 5px #0F0DFF; 
-    box-shadow: 10px 10px 12px 5px #0F0DFF;
+    -webkit-box-shadow: -5px -5px 6px 10px var(--liteGreen); 
+    box-shadow: -5px -5px 6px 10px var(--liteGreen);
 }
 
 #player2Display {
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
+    border-left: 1px solid var(--darkBlue);
+    border-bottom: 1px solid var(--darkBlue);
 }
 
 .displayHighlightRight {
-    -webkit-box-shadow: -10px 10px 12px 5px #0F0DFF; 
-    box-shadow: -10px 10px 12px 5px #0F0DFF;
+    -webkit-box-shadow: 5px -5px 6px 10px var(--liteGreen); 
+    box-shadow: 5px -5px 6px 10px var(--liteGreen);
 }
 
 #scoreboardDisplay {
@@ -88,7 +98,7 @@ body {
     align-items: center;
     justify-content: center;
 
-    border: 1px solid black;
+    border: 1px solid var(--white);
     height: 400px;
     width: 400px;
 }
@@ -107,7 +117,8 @@ body {
     justify-content: center;
     align-items: center;
 
-    border: 1px solid black;
+    border: 1px solid var(--white);
+    color: var(--tan);
     font-size: 65px;
     height: 100%;
     user-select: none;
