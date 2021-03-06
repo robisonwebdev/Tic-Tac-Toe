@@ -86,10 +86,19 @@ body {
     justify-content: center;
     align-items: center;
     gap: 5px;
+
+    color: var(--liteGreen);
+    font-size: 35px;
+}
+
+#winnerText {
+    color: var(--liteGreen);
+    font-size: 22px;
 }
 
 #gameTitle {
-    font-size: 32px;
+    color: var(--liteGreen);
+    font-size: 60px;
 }
 
 #gameboard {
@@ -149,6 +158,17 @@ body {
     gap: 5px;
 }
 
+label {
+    color: var(--liteGreen);
+}
+
+#playerOne, #playerTwo {
+    border: 2px solid var(--tan);
+    height: 32px;
+    padding-left: 7px;
+    width: 215px;
+}
+
 #buttons {
     display: flex;
     flex-direction: column;
@@ -157,6 +177,18 @@ body {
     gap: 15px;
 
     margin-bottom: 50px;
+}
+
+.gameBtns {
+    background-color: var(--white);
+    border: 2px solid var(--liteGreen);
+    font-size: 14px;
+    height: 32px;
+    width: 100px;
+}
+
+.gameBtns:hover {
+    font-size: 16px;
 }
 
 .displayRemove {
