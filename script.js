@@ -100,8 +100,6 @@ const gameControls = (function() {
         }
     }
 
-
-
     function displayWinner(player) {    
         const winnerText = document.querySelector('#winnerText');
 
@@ -126,8 +124,20 @@ const gameControls = (function() {
         })
     }
 
-    function hightlightCurrentPlayer() {
-        
+    function hightlightCurrentPlayer(del) {
+        const player1Display = document.querySelector('#player1Display');
+        const player2Display = document.querySelector('#player2Display');
+
+        if (del) {
+            player1Display.classList.remove('displayHighlightLeft');
+            player2Display.classList.remove('displayHighlightRight');
+        } else if (currentPlayer == player1) {
+            player1Display.classList.add('displayHighlightLeft');
+            player2Display.classList.remove('displayHighlightRight');
+        } else if (currentPlayer == player2) {
+            player1Display.classList.remove('displayHighlightLeft');
+            player2Display.classList.add('displayHighlightRight');
+        }
     }
 
     function playAgain() {
@@ -161,6 +171,7 @@ const gameControls = (function() {
 
         gameButtonsDisplay(false);
         gameSquareEventListener(false);
+        hightlightCurrentPlayer(true);
         playerInputDisplay(true);
         updateScoreDisplay('clear');
     }
@@ -175,6 +186,7 @@ const gameControls = (function() {
 
         setPlayers();
         currentPlayer = player1;
+        hightlightCurrentPlayer();
 
         gameButtonsDisplay(true);
         gameSquareEventListener(true);
@@ -231,6 +243,8 @@ const gameControls = (function() {
         } else {
             currentPlayer = player1;
         }
+
+        hightlightCurrentPlayer();
     }
 
     function winner(player) {
