@@ -33,9 +33,7 @@ const gameControls = (function() {
     let clickTracker = 0;
     let winnerTracker = false;
 
-    function tieGame() {
-        console.log('Tie Game!');
-    }
+
 
     let gameSquareFunctions = function(e) {
         updateSquareDisplay(e.target);
@@ -128,7 +126,14 @@ const gameControls = (function() {
         })
     }
 
+    function hightlightCurrentPlayer() {
+        
+    }
+
     function playAgain() {
+        clickTracker = 0;
+        winnerTracker = false;
+
         gameboard.reset();
  
         clearDisplayWinner();
@@ -144,8 +149,11 @@ const gameControls = (function() {
     }
 
     function quitGame() {
-        players.delete();
-        gameboard.reset();        
+        clickTracker = 0;
+        winnerTracker = false;
+
+        gameboard.reset();
+        players.delete();        
 
         clearDisplayWinner();
         clearPlayerInputs();
@@ -171,6 +179,12 @@ const gameControls = (function() {
         gameButtonsDisplay(true);
         gameSquareEventListener(true);
         playerInputDisplay(false);
+    }
+
+    function tieGame() {
+        const tieGame = document.querySelector('#winnerText');
+
+        tieGame.innerHTML = 'Tie game, play again!';
     }
 
     function updatePlayerScore(player) {
