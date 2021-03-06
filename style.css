@@ -48,9 +48,19 @@ body {
     border-bottom: 1px solid black;
 }
 
+.displayHighlightLeft {
+    -webkit-box-shadow: 10px 10px 12px 5px #0F0DFF; 
+    box-shadow: 10px 10px 12px 5px #0F0DFF;
+}
+
 #player2Display {
     border-left: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+.displayHighlightRight {
+    -webkit-box-shadow: -10px 10px 12px 5px #0F0DFF; 
+    box-shadow: -10px 10px 12px 5px #0F0DFF;
 }
 
 #scoreboardDisplay {
