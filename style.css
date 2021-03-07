@@ -165,7 +165,7 @@ label {
 }
 
 #playerOne, #playerTwo {
-    border: 2px solid var(--tan);
+    border: 2px solid var(--white);
     height: 32px;
     padding-left: 7px;
     width: 215px;
